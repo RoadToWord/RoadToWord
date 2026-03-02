@@ -1,0 +1,6 @@
+﻿/static/correct.mp3: Sound Effect by u_2gxydaiwcd from Pixabay
+/static/wrong.mp3: Sound Effect by u_8g40a9z0la from Pixabay
+Some icons are made with animatedicons.co.
+/sitemap(.xml) template: http://www.sitemaps.org/schemas/sitemap/0.9
+Profanity API: https://profanity.dev, https://vector.profanity.dev
+CAPTCHA: Cloudflare Turnstile

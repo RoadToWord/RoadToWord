@@ -1,0 +1,31 @@
+ROADTOWORD SOURCE-AVAILABLE LICENSE v1.0
+
+Copyright (c) 2026 Baran Cetin
+
+1. You are allowed to:
+
+* View the source code
+* Study and learn from the project
+* Modify the code for personal and educational purposes
+* Submit pull requests
+
+2. You are NOT allowed to:
+
+* Host this project publicly
+* Deploy a website using this project
+* Provide the software as a service (SaaS)
+* Use it for any commercial purpose
+* Sell, sublicense, or redistribute a running version
+* Offer a competing platform based on this project
+
+3. Trademark
+   The name "RoadToWord", its logo, branding, database structure,
+   lesson structure and educational content are protected.
+   You may not use them in any public or commercial service.
+
+4. Violation
+   Any violation automatically terminates the license and
+   constitutes copyright infringement.
+
+For commercial licensing or permission contact:
+cetbar736@gmail.com

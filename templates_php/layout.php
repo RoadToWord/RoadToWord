@@ -201,34 +201,35 @@ function roleLabel($role): string {
 
     <header class="header">
       <h1 class="app-title egg-logo" id="rtwLogo" title="..." tabindex="0">RoadToWord</h1>
-
       <nav class="nav">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/words" class="nav-link">Keywords</a>
-        <a href="/leaderboard" class="nav-link">Leaderboard</a>
+          <?php
+            $uri = $_SERVER["REQUEST_URI"] ?? "/";
+            $isActive = function($path) use ($uri) {
+                return (str_starts_with($uri, $path) && ($path !== "/" || $uri === "/")) ? " active" : "";
+            };
+          ?>
+          <a href="/" class="nav-link<?= $isActive("/") ?>">Home</a>
+          <a href="/words" class="nav-link<?= $isActive("/words") ?>">Keywords</a>
+          <a href="/leaderboard" class="nav-link<?= $isActive("/leaderboard") ?>">Leaderboard</a>
 
-        <?php if ($loggedIn): ?>
-          <a href="/users" class="nav-link">Users</a>
-          <a href="/friends" class="nav-link">Friends</a>
-          <a href="/offline" class="nav-link">Offline</a>
-          <a href="/shop" class="nav-link">Shop</a>
-          <?php if (in_array($role, ["admin", "teacher"], true)): ?>
-            <a href="/dashboard" class="nav-link">Dashboard</a>
-          <?php endif; ?>
-          <a href="/account" class="nav-link">Account</a>
-          <a href="/classrooms" class="nav-link">Classrooms</a>
-          <a href="/notifications" class="nav-link">Alerts<?php if (!empty($notification_count)): ?> (<?= (int) $notification_count ?>)<?php endif; ?></a>
+          <?php if ($loggedIn): ?>
+            <a href="/users" class="nav-link<?= $isActive("/users") ?>">Users</a>
+            <a href="/friends" class="nav-link<?= $isActive("/friends") ?>">Friends</a>
+            <a href="/offline" class="nav-link<?= $isActive("/offline") ?>">Offline</a>
+            <a href="/shop" class="nav-link<?= $isActive("/shop") ?>">Shop</a>
+            <?php if (in_array($role, ["admin", "teacher"], true)): ?>
+              <a href="/dashboard" class="nav-link<?= $isActive("/dashboard") ?>">Dashboard</a>
+            <?php endif; ?>
+            <a href="/account" class="nav-link<?= $isActive("/account") ?>">Account</a>
+            <a href="/classrooms" class="nav-link<?= $isActive("/classrooms") ?>">Classrooms</a>
+            <a href="/notifications" class="nav-link<?= $isActive("/notifications") ?>">Alerts<?php if (!empty($notification_count)): ?> (<?= (int) $notification_count ?>)<?php endif; ?></a>
 
-          <?php if ($role === "admin"): ?>
-            <a href="/admin" class="nav-link">Admin</a>
-            <a href="/admin/students" class="nav-link">Learners</a>
-            <a href="/admin/users" class="nav-link">Users</a>
-            <a href="/admin/logs" class="nav-link">Logs</a>
-            <a href="/admin/packs" class="nav-link">Packs</a>
-          <?php endif; ?>
+            <?php if ($role === "admin"): ?>
+              <a href="/admin" class="nav-link<?= $isActive("/admin") ?>">Admin</a>
+            <?php endif; ?>
 
-          <span class="nav-user<?php if (!empty($nav_name_glow)) { echo " name-glow"; } ?>">Logged in as <?= htmlspecialchars((string) $session["username"], ENT_QUOTES) ?> (<?= htmlspecialchars(roleLabel((string) $role), ENT_QUOTES) ?>)</span>
-          <a href="/logout" class="nav-link">Logout</a>
+            <span class="nav-user<?php if (!empty($nav_name_glow)) { echo " name-glow"; } ?>" style="font-size: 0.85rem; opacity: 0.8; border-left: 1px solid var(--glass-border); padding-left: 12px; margin-left: 4px;"><?= htmlspecialchars((string) $session["username"], ENT_QUOTES) ?></span>
+            <a href="/logout" class="nav-link" style="color: #ef4444;">Logout</a>
         <?php else: ?>
           <a href="/login" class="nav-link">Login</a>
           <a href="/about" class="nav-link">About</a>

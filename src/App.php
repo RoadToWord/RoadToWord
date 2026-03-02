@@ -1196,16 +1196,7 @@ final class App
                     "turnstile_sitekey" => Config::turnstileSiteKey(),
                     "google_enabled" => $this->googleOauthEnabled(),
                     "error" => "Invalid CAPTCHA.",
-                    "modes" => [
-                        "turkish" => "Turkish meaning",
-                        "definition" => "Definition",
-                        "synonym" => "Synonym",
-                        "antonym" => "Antonym",
-                        "typing" => "Typing",
-                        "mixed" => "Mixed",
-                        "timed" => "Timed",
-                        "review" => "Review",
-                    ],
+                    "modes" => array_combine(self::QUIZ_MODES, array_map('ucfirst', self::QUIZ_MODES)),
                 ]);
                 return;
             }
@@ -1219,16 +1210,7 @@ final class App
                 "turnstile_sitekey" => Config::turnstileSiteKey(),
                 "google_enabled" => $this->googleOauthEnabled(),
                 "error" => "Username and password are required.",
-                "modes" => [
-                    "turkish" => "Turkish meaning",
-                    "definition" => "Definition",
-                    "synonym" => "Synonym",
-                    "antonym" => "Antonym",
-                    "typing" => "Typing",
-                    "mixed" => "Mixed",
-                    "timed" => "Timed",
-                    "review" => "Review",
-                ],
+                "modes" => array_combine(self::QUIZ_MODES, array_map('ucfirst', self::QUIZ_MODES)),
             ]);
             return;
         }
@@ -1240,16 +1222,7 @@ final class App
                     "turnstile_sitekey" => Config::turnstileSiteKey(),
                     "google_enabled" => $this->googleOauthEnabled(),
                     "error" => "Please agree to the Terms of Service and Privacy Policy.",
-                    "modes" => [
-                        "turkish" => "Turkish meaning",
-                        "definition" => "Definition",
-                        "synonym" => "Synonym",
-                        "antonym" => "Antonym",
-                        "typing" => "Typing",
-                        "mixed" => "Mixed",
-                        "timed" => "Timed",
-                        "review" => "Review",
-                    ],
+                    "modes" => array_combine(self::QUIZ_MODES, array_map('ucfirst', self::QUIZ_MODES)),
                 ]);
                 return;
             }

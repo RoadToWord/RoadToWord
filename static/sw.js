@@ -1,5 +1,5 @@
 // Bump this when you ship important static changes (CSS/JS/images).
-const CACHE_VERSION = 'v6';
+const CACHE_VERSION = 'v7';
 const APP_SHELL_CACHE = `rtw-app-shell-${CACHE_VERSION}`;
 const PAGES_CACHE = `rtw-pages-${CACHE_VERSION}`;
 const STATIC_CACHE = `rtw-static-${CACHE_VERSION}`;
@@ -46,7 +46,7 @@ function refreshResponse(response) {
           }));
         });
       });
-  }).catch(() => {});
+  }).catch(() => { });
 }
 
 function fetchJson(url) {
@@ -144,7 +144,7 @@ self.addEventListener('fetch', (event) => {
         })
         .catch(async () => {
           const cached = await caches.match(req);
-          return cached || caches.match('/offline') || caches.match('/start');
+          return cached || caches.match('/offline');
         })
     );
     return;
@@ -225,7 +225,7 @@ self.addEventListener('fetch', (event) => {
           const copy = resp.clone();
           return cachePut(req, copy).then(() => refreshResponse(resp));
         }
-      }).catch(() => {})
+      }).catch(() => { })
     );
     return;
   }
@@ -267,7 +267,7 @@ self.addEventListener('push', (event) => {
   } catch (_) {
     try {
       payload = { body: event.data ? event.data.text() : '' };
-    } catch (__){
+    } catch (__) {
       payload = {};
     }
   }
